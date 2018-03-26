@@ -9,18 +9,28 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "schema": "apollo-codegen introspect-schema https://us-central1-web-verse.cloudfunctions.net/operator/graphql --output ./src/schema.json",
+    "types": "apollo-codegen generate ./src/**/queries.ts --addTypename --schema ./src/schema.json --target typescript --output ./src/__generated__/types.ts"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.1.12",
+    "apollo-client": "^2.2.8",
+    "apollo-link-http": "^1.5.3",
+    "graphql-tag": "^2.8.0",
     "react": "^16.2.0",
+    "react-apollo": "^2.1.1",
     "react-dom": "^16.2.0",
     "react-scripts-ts": "2.14.0"
   },
   "devDependencies": {
+    "@types/graphql": "^0.12.6",
     "@types/jest": "^22.2.2",
     "@types/node": "^9.6.0",
+    "@types/prop-types": "^15.5.2",
     "@types/react": "^16.0.41",
     "@types/react-dom": "^16.0.4",
+    "apollo-codegen": "^0.19.0",
     "typescript": "^2.7.2"
   }
 }

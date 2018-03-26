@@ -1,11 +1,24 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
-import App from './app/App'
-import registerServiceWorker from './registerServiceWorker'
-import './index.css'
+import { render } from 'react-dom'
+import { ApolloClient } from 'apollo-client'
+import { createHttpLink } from 'apollo-link-http'
+import { ApolloProvider } from 'react-apollo'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { App } from './App'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
+const httpLink = createHttpLink({
+    uri: 'http://localhost:5000/web-verse/us-central1/operator/graphql',
+})
+
+const client = new ApolloClient({
+    link: httpLink,
+    cache: new InMemoryCache()
+})
+
+const WrappedApp = (
+    <ApolloProvider client={client}>
+        <App />
+    </ApolloProvider>
 )
-registerServiceWorker()
+
+render(WrappedApp, document.getElementById('root'))

@@ -3,12 +3,11 @@ import './App.css'
 
 const logo = require('../logo.svg')
 
-const ChannelsList = () => (
-    <ul>
+const ChannelsList = () =>
+    (<ul>
         <li>Channel 0</li>
         <li>Channel 1</li>
-    </ul>
-)
+    </ul>)
 
 class App extends React.Component {
   render() {

@@ -10,7 +10,7 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "schema": "apollo-codegen introspect-schema https://us-central1-web-verse.cloudfunctions.net/operator/graphql --output ./src/schema.json",
+    "schema": "apollo-codegen introspect-schema http://localhost:5000/web-verse/us-central1/operator/graphql --output ./src/__generated__/schema.json",
     "types": "apollo-codegen generate ./src/**/queries.ts --addTypename --schema ./src/schema.json --target typescript --output ./src/__generated__/types.ts"
   },
   "dependencies": {

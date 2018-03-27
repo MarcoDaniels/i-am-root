@@ -7,7 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { App } from './App'
 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:5000/web-verse/us-central1/operator/graphql',
+    uri: process.env.REACT_APP_GRAPH_QL_API,
 })
 
 const client = new ApolloClient({

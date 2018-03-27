@@ -11,12 +11,11 @@ interface ProjectProps {
 
 export const Project: React.SFC<ProjectProps> = props => {
     const { projectName } = props
-    console.log('project: ', projectName)
 
     return (
         <ProjectQuery query={GetProject} variables={{projectName}}>
             {({ loading, data, error }) => {
-                console.log(data)
+
                 if (loading) {
                     return <div>Loading</div>
                 }
@@ -28,10 +27,14 @@ export const Project: React.SFC<ProjectProps> = props => {
                 }
 
                 const { project } = data
+
                 return (
                     <div>
-                        { project && (
-                            <p>{project}</p>
+                        { project && project.get && (
+                            <div>
+                                <p>{project.get.name}</p>
+                                <p>{project.get.homepage}</p>
+                            </div>
                         )}
                     </div>
                 )

@@ -17,7 +17,8 @@ const client = new ApolloClient({
 
 const WrappedApp = (
     <ApolloProvider client={client}>
-        <App />
+        <p>static: content</p>
+        <App/>
     </ApolloProvider>
 )
 

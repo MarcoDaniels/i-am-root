@@ -1,0 +1,13 @@
+pre.i-am-root {
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20px;
+    text-align: center;
+    line-height: 22px;
+    overflow-x: hidden;
+    color: #32cd32;
+}
+
+pre.i-am-root > span {
+    display: -webkit-box;
+}

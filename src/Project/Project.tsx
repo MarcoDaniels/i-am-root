@@ -1,7 +1,7 @@
-import { GetProjectQuery, GetProjectQueryVariables } from './__generated__/types'
-import { GetProject } from './queries'
+import { GetProjectQuery, GetProjectQueryVariables } from '../__generated__/types'
+import { GetProject } from '../__queries__/queries'
 import { Query } from 'react-apollo'
-import * as React from 'react';
+import * as React from 'react'
 
 class ProjectQuery extends Query<GetProjectQuery, GetProjectQueryVariables> {}
 
@@ -32,8 +32,7 @@ export const Project: React.SFC<ProjectProps> = props => {
                     <div>
                         { project && project.get && (
                             <div>
-                                <p>{project.get.name}</p>
-                                <p>{project.get.homepage}</p>
+                                <p>dynamic {project.get.name}</p>
                             </div>
                         )}
                     </div>

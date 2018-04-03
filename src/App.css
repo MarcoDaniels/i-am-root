@@ -1,0 +1,25 @@
+body {
+    background-color: #3a3a3a;
+    color: #32cd32;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+.text-base,
+.font-white {
+    color: #FFFFFF;
+}
+
+.text-head,
+.font-brown {
+    color: 	#CD853F;
+}
+
+.text-name,
+.font-green {
+    color: #32cd32;
+}
+
+.font-black {
+    color: #000000;
+}

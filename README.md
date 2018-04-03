@@ -2,7 +2,7 @@
 
 ## TODO
 * [x] setup static vs dynamic data example
-* [ ] setup apollo cache
+* [ ] rename file in folder to index
 ### components
 * [x] root (static)
 * [ ] welcome (graph/props)

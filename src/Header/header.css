@@ -1,11 +1,22 @@
+div.header {
+    display: -webkit-box;
+}
+
 pre.i-am-root {
+    float: left;
     font-size: 20px;
     font-weight: bold;
-    padding-left: 20px;
+    padding: 0 25px;
     text-align: center;
     line-height: 22px;
     overflow-x: hidden;
     color: #32cd32;
+    margin: 0;
+}
+
+div.welcome {
+    float: left;
+    padding: 0 25px;
 }
 
 pre.i-am-root > span {

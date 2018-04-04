@@ -1,10 +1,10 @@
 import * as React from 'react'
 import './App.css'
-import { Root } from './Root/Root'
-import { Project } from './Project/Project'
+import { Project } from './Project'
+import { Header } from './Header'
 
 export const App = () =>
     <div>
-        <Root/>
+        <Header/>
         <Project projectName={'joyful'}/>
     </div>

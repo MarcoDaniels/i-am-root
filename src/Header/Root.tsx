@@ -1,5 +1,4 @@
 import * as React from 'react'
-import './Root.css'
 
 export const Root = () =>
     <div>

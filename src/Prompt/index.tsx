@@ -1,28 +1,48 @@
 import * as React from 'react'
 import { Component } from 'react'
 
-class Input extends Component {
-    state = {
-        command: undefined
+type Props = { }
+type State = {
+    input: string
+    command: string
+}
+
+class Input extends Component<Props, State> {
+
+    constructor(props: any) {
+        super(props)
+        this.state = {
+            input: '',
+            command: ''
+        }
+
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
+
+    handleChange(event: any) {
+        this.setState({
+            input: event.target.value
+        })
+    }
+
+    handleSubmit(event: any) {
+        this.setState({
+            input: '',
+            command: this.state.input
+        })
+        event.preventDefault()
     }
 
     render() {
         return (
-            <div>
-                <input type="text" onKeyPress={this.submitCommand} />
-                <p>value: {this.state.command}</p>
-            </div>
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    <input type="text" value={this.state.input} onChange={this.handleChange} />
+                    <p>value: {this.state.command}</p>
+                </label>
+            </form>
         )
-    }
-
-    submitCommand = (event: any) => {
-        if (event.key === 'Enter') {
-            const { value } = event.target
-
-            this.setState({
-                command: value
-            })
-        }
     }
 }
 

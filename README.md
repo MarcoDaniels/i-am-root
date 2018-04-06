@@ -6,6 +6,6 @@
 ### components
 * [x] root (static)
 * [x] welcome (graph/props)
-* [ ] prompt (static)
-* [ ] input
+* [x] prompt (static)
+* [x] input
 * [ ] agent (graph/props)

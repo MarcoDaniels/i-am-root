@@ -5,16 +5,14 @@ type Props = { }
 type State = {
     input: string
     command: string
+    result: string[]
 }
 
-class Input extends Component<Props, State> {
+class CommandInput extends Component<Props, State> {
 
     constructor(props: any) {
         super(props)
-        this.state = {
-            input: '',
-            command: ''
-        }
+        this.state = { input: '',  command: '',  result: [''] }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,26 +25,42 @@ class Input extends Component<Props, State> {
     }
 
     handleSubmit(event: any) {
+        let result = [
+            ...this.state.result,
+            this.state.input
+        ]
+
+        if (this.state.input === 'clear') {
+            result = []
+        }
+
         this.setState({
             input: '',
-            command: this.state.input
+            command: this.state.input,
+            result: result
         })
         event.preventDefault()
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label>
-                    <input type="text" value={this.state.input} onChange={this.handleChange} />
-                    <p>value: {this.state.command}</p>
-                </label>
-            </form>
+            <div>
+                {/*TODO: make it component*/}
+                {this.state.result.map((value, index) => {
+                    return <p key={index}>{value}</p>
+                })}
+                <form onSubmit={this.handleSubmit}>
+                    <label>
+                        <input type="text" value={this.state.input} onChange={this.handleChange} />
+                    </label>
+                </form>
+                <p>latest command: {this.state.command}</p>
+            </div>
         )
     }
 }
 
 export const Prompt = () =>
     <div>
-        <Input/>
+        <CommandInput/>
     </div>

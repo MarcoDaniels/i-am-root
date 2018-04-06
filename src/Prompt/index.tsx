@@ -50,7 +50,7 @@ class CommandInput extends Component<Props, State> {
                 {/*TODO: make it component*/}
                 {this.state.commands.map((value, index) => {
                     if (value === 'project') {
-                        return <Project key={index} projectName={'joyful'}/>
+                        return <Project key={index} projectName={'Joyful Talks'}/>
                     }
                     return <p key={index}>{value}</p>
                 })}

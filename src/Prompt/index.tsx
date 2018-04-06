@@ -1,18 +1,20 @@
 import * as React from 'react'
 import { Component } from 'react'
+import { Project } from '../Project'
+import { User } from '../User'
 
 type Props = { }
 type State = {
     input: string
     command: string
-    result: string[]
+    commands: string[]
 }
 
 class CommandInput extends Component<Props, State> {
 
     constructor(props: any) {
         super(props)
-        this.state = { input: '',  command: '',  result: [''] }
+        this.state = { input: '',  command: '',  commands: [''] }
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -26,7 +28,7 @@ class CommandInput extends Component<Props, State> {
 
     handleSubmit(event: any) {
         let result = [
-            ...this.state.result,
+            ...this.state.commands,
             this.state.input
         ]
 
@@ -37,7 +39,7 @@ class CommandInput extends Component<Props, State> {
         this.setState({
             input: '',
             command: this.state.input,
-            result: result
+            commands: result
         })
         event.preventDefault()
     }
@@ -46,13 +48,15 @@ class CommandInput extends Component<Props, State> {
         return (
             <div>
                 {/*TODO: make it component*/}
-                {this.state.result.map((value, index) => {
+                {this.state.commands.map((value, index) => {
+                    if (value === 'project') {
+                        return <Project key={index} projectName={'joyful'}/>
+                    }
                     return <p key={index}>{value}</p>
                 })}
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <input type="text" value={this.state.input} onChange={this.handleChange} />
-                    </label>
+                    <User/>
+                    <input type="text" value={this.state.input} onChange={this.handleChange} />
                 </form>
                 <p>latest command: {this.state.command}</p>
             </div>

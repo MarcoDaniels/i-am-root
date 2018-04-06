@@ -32,7 +32,7 @@ export const Project: React.SFC<ProjectProps> = props => {
                     <div>
                         { project && project.get && (
                             <div>
-                                <p>dynamic {project.get.name}</p>
+                                <p>{project.get.name}</p>
                             </div>
                         )}
                     </div>

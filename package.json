@@ -10,8 +10,9 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
+    "generate": "yarn schema && yarn types",
     "schema": "apollo-codegen introspect-schema http://localhost:5000/web-verse/us-central1/operator/graphql --output ./src/__generated__/schema.json",
-    "types": "apollo-codegen generate ./src/**/queries.ts --addTypename --schema ./src/schema.json --target typescript --output ./src/__generated__/types.ts"
+    "types": "apollo-codegen generate ./src/**/queries.ts --addTypename --schema ./src/__generated__/schema.json --target typescript --output ./src/__generated__/types.ts"
   },
   "dependencies": {
     "apollo-cache-inmemory": "^1.1.12",

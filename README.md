@@ -2,8 +2,10 @@
 
 ## TODO
 ### components
-* [ ] Project list query (graph)
-* [ ] Project divide into sub-components
-* [ ] Project help component (graph)
+* [x] Project list query (graph)
+* [x] Project divide into sub-components
+* [x] Project help component (graph)
 * [ ] user keep state after submit
+* [ ] prettify output
+* [ ] prettify input
 * [ ] user (graph/props)

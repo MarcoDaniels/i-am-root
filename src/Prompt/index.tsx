@@ -36,9 +36,7 @@ class CommandInput extends Component<Props, State> {
         switch (command) {
             case 'project':
             case 'projects':
-                result = [...this.state.results,
-                    <Project key={key} options={options}/>
-                ]
+                result = [...this.state.results, <Project key={key} options={options}/>]
                 break
             case 'clear':
                 result = []
@@ -58,7 +56,7 @@ class CommandInput extends Component<Props, State> {
     render() {
         return (
             <div>
-                {this.state.results.map((value, index) => { return value })}
+                {this.state.results.map(value => { return value })}
                 <form onSubmit={this.handleSubmit}>
                     <User/>
                     <input type="text" value={this.state.input} onChange={this.handleChange} />

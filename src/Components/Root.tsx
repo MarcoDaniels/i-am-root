@@ -12,3 +12,5 @@ export const Root = () =>
             <span className="font-brown">   \ _ /</span>
         </pre>
     </div>
+
+export default Root

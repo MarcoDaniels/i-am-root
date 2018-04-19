@@ -1,14 +1,15 @@
 import * as React from 'react'
-import { GetProject } from './GetProject'
-import { ListProject } from './ListProject'
-import HelpProject from './HelpProject'
+import GetProject from './Project/GetProject'
+import ListProject from './Project/ListProject'
+import HelpProject from './Project/HelpProject'
 
 interface ProjectProps {
+    command: string
     options: string
 }
 
 export const Project: React.SFC<ProjectProps> = props => {
-    const { options } = props
+    const { options, command } = props
     let expression = new RegExp('(-?[-]\\w+)')
     let flags = expression.exec(options)
 
@@ -24,10 +25,15 @@ export const Project: React.SFC<ProjectProps> = props => {
             case '-ls':
             case '--list':
                 return (<ListProject/>)
-            default:
+            case '-h':
+            case '--help':
                 return (<HelpProject/>)
+            default:
+                return (<HelpProject command={command}/>)
         }
     }
 
-    return (<HelpProject/>)
+    return (<HelpProject command={command}/>)
 }
+
+export default Project

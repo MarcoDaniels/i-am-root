@@ -1,5 +1,5 @@
-import { getProjectQuery, getProjectQueryVariables } from '../__generated__/types'
-import { getProject } from '../__queries__/queries'
+import { getProjectQuery, getProjectQueryVariables } from '../../__generated__/types'
+import { getProject } from '../../__queries__/queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 

@@ -1,27 +1,28 @@
 import * as React from 'react'
 import { Component, ReactElement } from 'react'
-import { Project } from '../Project'
-import { User } from '../User'
+import Project from './Project'
+import User from './User'
+import NotFound from './NotFound'
 
-type Props = { }
+type Props = {}
 type State = {
     input: string
     lastCommand: string
     results: ReactElement<any>[]
 }
 
-class CommandInput extends Component<Props, State> {
+export class Prompt extends Component<Props, State> {
 
     constructor(props: any) {
         super(props)
-        this.state = { input: '', lastCommand: '', results: [] }
+        this.state = {input: '', lastCommand: '', results: []}
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handleChange(event: any) {
-        this.setState({ input: event.target.value })
+        this.setState({input: event.target.value})
     }
 
     handleSubmit(event: any) {
@@ -30,19 +31,29 @@ class CommandInput extends Component<Props, State> {
         fullInput.shift() // the leftovers are options
         let options = fullInput.join(' ')
 
-        let result = [...this.state.results]
+        let result = [
+            ...this.state.results,
+            <User key={this.state.results.length} lastCommand={this.state.input}/>
+        ]
 
-        let key = this.state.results.length
         switch (command) {
+            case '': // just a "enter"
+                break
             case 'project':
             case 'projects':
-                result = [...this.state.results, <Project key={key} options={options}/>]
+                result.push(
+                    <Project
+                        key={result.length}
+                        options={options}
+                        command={this.state.input}
+                    />
+                )
                 break
             case 'clear':
                 result = []
                 break
             default:
-                result = [...this.state.results]
+                result.push(<NotFound command={this.state.input}/>)
         }
 
         this.setState({
@@ -56,18 +67,18 @@ class CommandInput extends Component<Props, State> {
     render() {
         return (
             <div>
-                {this.state.results.map(value => { return value })}
+                <div className="result">
+                    {this.state.results.map(value => {
+                        return value
+                    })}
+                </div>
                 <form onSubmit={this.handleSubmit}>
                     <User/>
-                    <input type="text" value={this.state.input} onChange={this.handleChange} />
+                    <input type="text" size={50} value={this.state.input} onChange={this.handleChange}/>
                 </form>
-                <p>latest command: {this.state.lastCommand}</p>
             </div>
         )
     }
 }
 
-export const Prompt = () =>
-    <div>
-        <CommandInput/>
-    </div>
+export default Prompt

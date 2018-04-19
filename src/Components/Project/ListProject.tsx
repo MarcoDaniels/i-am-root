@@ -1,5 +1,5 @@
-import { listProjectsQuery } from '../__generated__/types'
-import { listProjects } from '../__queries__/queries'
+import { listProjectsQuery } from '../../__generated__/types'
+import { listProjects } from '../../__queries__/queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 

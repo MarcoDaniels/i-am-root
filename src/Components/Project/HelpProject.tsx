@@ -1,12 +1,16 @@
-import { helpProjectQuery } from '../__generated__/types'
-import { helpProject } from '../__queries__/queries'
+import { helpProjectQuery } from '../../__generated__/types'
+import { helpProject } from '../../__queries__/queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 
 class ProjectQuery extends Query<helpProjectQuery> {}
 
-export const HelpProject: React.SFC = () => {
+interface HelpProjectProps {
+    command?: string
+}
 
+export const HelpProject: React.SFC<HelpProjectProps> = props => {
+    const { command } = props
     return (
         <ProjectQuery query={helpProject}>
             {({ loading, data, error }) => {
@@ -25,6 +29,7 @@ export const HelpProject: React.SFC = () => {
 
                 return (
                     <div>
+                        {command}
                         { project && project.help && project.help.content && (
                             project.help.content.map((item, i) => item && (
                                 <p key={i}>{item}</p>

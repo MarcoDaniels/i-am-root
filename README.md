@@ -6,4 +6,4 @@ _root is powered by React_
 * [ ] prettify project -i
 * [ ] prettify project -ls
 * [ ] prettify project -h
-* [ ] user (graph/props)
+* [ ] welcome with "writing" opening

@@ -3,6 +3,7 @@ body {
     color: #32cd32;
     font-family: monospace;
     font-size: 13px !important;
+    width: 100%;
 }
 
 form {
@@ -83,4 +84,13 @@ pre.i-am-root > span {
 
 div.project-list {
     margin-top: 15px;
+}
+
+div.help-usage {
+    margin-top: 5px;
+}
+
+div.help-content {
+    margin-top: 5px;
+    margin-left: 10px;
 }

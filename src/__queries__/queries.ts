@@ -30,6 +30,7 @@ export const helpProject = gql`
     query helpProject {
         project {
             help {
+                usage
                 content
             }
         }

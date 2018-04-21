@@ -37,14 +37,20 @@ export const HelpProject: React.SFC<HelpProjectProps> = props => {
                     return <SomethingWentWrong/>
                 }
 
+                const commandHelp = command ? command + ' is not a valid command, try:' : null
+
                 return (
                     <div>
-                        {command}
-                        { content.map((item, i) => item && (
-                            <div key={i}>
-                                <div>{item}</div>
-                            </div>
-                        ))}
+                        <div>{commandHelp}</div>
+                        <div className="help-usage">
+                            <span className="font-brown">usage: </span>
+                            <span className="font-green">{project.usage}</span>
+                        </div>
+                        <div className="help-content">
+                            {content.map((item, i) => item && (
+                                <div key={i}>{item}</div>
+                            ))}
+                        </div>
                     </div>
                 )
             }}

@@ -50,6 +50,8 @@ export interface helpProjectQuery {
     // Help feature
     help:  {
       __typename: "Help",
+      // The usage of help command
+      usage: string | null,
       // Help content features
       content: Array< string | null > | null,
     } | null,

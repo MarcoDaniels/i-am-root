@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Component, ReactElement } from 'react'
 import Project from './Project'
 import User from './User'
-import NotFound from './NotFound'
+import { CommandNotFound } from './Errors'
 
 type Props = {}
 type State = {
@@ -53,7 +53,12 @@ export class Prompt extends Component<Props, State> {
                 result = []
                 break
             default:
-                result.push(<NotFound command={this.state.input}/>)
+                result.push(
+                    <CommandNotFound
+                        key={result.length}
+                        command={this.state.input}
+                    />
+                )
         }
 
         this.setState({
@@ -74,7 +79,13 @@ export class Prompt extends Component<Props, State> {
                 </div>
                 <form onSubmit={this.handleSubmit}>
                     <User/>
-                    <input type="text" size={50} value={this.state.input} onChange={this.handleChange}/>
+                    <input
+                        type="text"
+                        size={50}
+                        autoFocus={true}
+                        value={this.state.input}
+                        onChange={this.handleChange}
+                    />
                 </form>
             </div>
         )

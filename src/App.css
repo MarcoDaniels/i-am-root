@@ -21,6 +21,11 @@ input {
     border-bottom: 1px solid #CD853F;
 }
 
+h2 {
+    font-weight: normal;
+    font-style: italic;
+}
+
 .user {
     margin-top: 15px;
 }
@@ -39,6 +44,9 @@ input {
     color: #CD853F;
 }
 
+a:link,
+a:visited,
+a:hover,
 .text-name,
 .font-green {
     color: #32cd32;

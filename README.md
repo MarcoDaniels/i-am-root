@@ -3,7 +3,5 @@
 _root is powered by React_
 
 ## TODO
-* [x] prettify project -i
-* [ ] prettify project -ls
-* [ ] prettify project -h
+* [ ] use help
 * [ ] welcome with "writing" opening

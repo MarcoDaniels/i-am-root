@@ -80,3 +80,7 @@ div.welcome {
 pre.i-am-root > span {
     display: -webkit-box;
 }
+
+div.project-list {
+    margin-top: 15px;
+}

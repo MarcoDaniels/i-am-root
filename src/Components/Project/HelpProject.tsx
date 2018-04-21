@@ -2,6 +2,7 @@ import { helpProjectQuery } from '../../__generated__/types'
 import { helpProject } from '../../__queries__/queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
+import { SomethingWentWrong } from '../Errors'
 
 class ProjectQuery extends Query<helpProjectQuery> {}
 
@@ -14,27 +15,36 @@ export const HelpProject: React.SFC<HelpProjectProps> = props => {
     return (
         <ProjectQuery query={helpProject}>
             {({ loading, data, error }) => {
-
+                if (error || !data) {
+                    return <SomethingWentWrong/>
+                }
                 if (loading) {
-                    return <div>Loading</div>
-                }
-                if (error) {
-                    return <h1>ERROR</h1>
-                }
-                if (!data) {
-                    return <div>no data</div>
+                    return <div>getting help ...</div>
                 }
 
-                const { project } = data
+                const projectData = data.project ? data.project : null
+                if (!projectData) {
+                    return <SomethingWentWrong/>
+                }
+
+                const project = projectData.help ? projectData.help : null
+                if (!project) {
+                    return <SomethingWentWrong/>
+                }
+
+                const content = project.content ? project.content : null
+                if (!content) {
+                    return <SomethingWentWrong/>
+                }
 
                 return (
                     <div>
                         {command}
-                        { project && project.help && project.help.content && (
-                            project.help.content.map((item, i) => item && (
-                                <p key={i}>{item}</p>
-                            ))
-                        )}
+                        { content.map((item, i) => item && (
+                            <div key={i}>
+                                <div>{item}</div>
+                            </div>
+                        ))}
                     </div>
                 )
             }}

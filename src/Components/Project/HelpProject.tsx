@@ -37,7 +37,7 @@ export const HelpProject: React.SFC<HelpProjectProps> = props => {
                     return <SomethingWentWrong/>
                 }
 
-                const commandHelp = command ? command + ' is not a valid command, try:' : null
+                const commandHelp = command ? command + ' is not a valid command ...' : null
 
                 return (
                     <div>

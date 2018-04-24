@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { Component, ReactElement } from 'react'
-import Project from './Project'
-import User from './User'
 import { CommandNotFound } from './Errors'
+import User from './User'
+import Project from './Project'
+import About from './About'
+import Help from './Help'
 
 type Props = {}
 type State = {
@@ -41,24 +43,19 @@ export class Prompt extends Component<Props, State> {
                 break
             case 'project':
             case 'projects':
-                result.push(
-                    <Project
-                        key={result.length}
-                        options={options}
-                        command={this.state.input}
-                    />
-                )
+                result.push(<Project key={result.length} command={this.state.input} options={options}/>)
+                break
+            case 'about':
+                result.push(<About key={result.length} command={this.state.input} options={options}/>)
+                break
+            case 'help':
+                result.push(<Help key={result.length}/>)
                 break
             case 'clear':
                 result = []
                 break
             default:
-                result.push(
-                    <CommandNotFound
-                        key={result.length}
-                        command={this.state.input}
-                    />
-                )
+                result.push(<CommandNotFound key={result.length} command={this.state.input}/>)
         }
 
         this.setState({

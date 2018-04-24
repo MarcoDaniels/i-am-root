@@ -3,5 +3,7 @@
 _root is powered by React_
 
 ## TODO
-* [ ] use help
+* [x] use help
+* [ ] Get About
+* [ ] Help About
 * [ ] welcome with "writing" opening

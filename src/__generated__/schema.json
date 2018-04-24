@@ -25,6 +25,18 @@
               "deprecationReason": null
             },
             {
+              "name": "help",
+              "description": "The root commands help",
+              "args": [],
+              "type": {
+                "kind": "OBJECT",
+                "name": "HelpQuery",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "project",
               "description": "The projects base query",
               "args": [],
@@ -64,8 +76,8 @@
               "description": "This is user.",
               "args": [
                 {
-                  "name": "name",
-                  "description": "The user name",
+                  "name": "userName",
+                  "description": "The user userName",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -136,6 +148,30 @@
               "deprecationReason": null
             },
             {
+              "name": "email",
+              "description": "The user email.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "userName",
+              "description": "The user userName.",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "title",
               "description": "The user title.",
               "args": [],
@@ -152,6 +188,76 @@
               "description": "The user description.",
               "args": [],
               "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "welcomeMessage",
+              "description": "The user welcome message",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "HelpQuery",
+          "description": "The root commands help",
+          "fields": [
+            {
+              "name": "list",
+              "description": "Help feature",
+              "args": [],
+              "type": {
+                "kind": "LIST",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Help",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Help",
+          "description": "Help feature",
+          "fields": [
+            {
+              "name": "type",
+              "description": "The type of the feature",
+              "args": [],
+              "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
@@ -160,8 +266,32 @@
               "deprecationReason": null
             },
             {
-              "name": "welcomeMessage",
-              "description": "The user welcome message",
+              "name": "description",
+              "description": "The description of the feature help",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "usage",
+              "description": "The usage of feature help command",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "content",
+              "description": "Help content features",
               "args": [],
               "type": {
                 "kind": "LIST",
@@ -311,52 +441,17 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "OBJECT",
-          "name": "Help",
-          "description": "Help feature",
-          "fields": [
-            {
-              "name": "type",
-              "description": "The agent type to help",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
             },
             {
-              "name": "usage",
-              "description": "The usage of help command",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "content",
-              "description": "Help content features",
+              "name": "collaborators",
+              "description": "This is user.",
               "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
                 "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
+                  "kind": "OBJECT",
+                  "name": "User",
                   "ofType": null
                 }
               },
@@ -465,7 +560,7 @@
               "deprecationReason": null
             },
             {
-              "name": "startDate",
+              "name": "from",
               "description": "The start date of the experience",
               "args": [],
               "type": {
@@ -477,7 +572,7 @@
               "deprecationReason": null
             },
             {
-              "name": "endDate",
+              "name": "to",
               "description": "The end date of the experience",
               "args": [],
               "type": {

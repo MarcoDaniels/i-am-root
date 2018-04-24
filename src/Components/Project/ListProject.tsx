@@ -1,5 +1,5 @@
 import { listProjectsQuery } from '../../__generated__/types'
-import { listProjects } from '../../__queries__/queries'
+import { listProjects } from '../../__queries__/project'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Errors'
@@ -31,7 +31,7 @@ export const ListProject: React.SFC = () => {
                 return (
                     <div>
                         { projects.map((project, i) => project && (
-                        <div className="project-list" key={i}>
+                        <div className="list" key={i}>
                             <div>
                                 <span className="text-head">name: </span>
                                 <span className="text-name">{project.name}</span>

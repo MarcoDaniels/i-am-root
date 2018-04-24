@@ -1,5 +1,5 @@
 import { helpProjectQuery } from '../../__generated__/types'
-import { helpProject } from '../../__queries__/queries'
+import { helpProject } from '../../__queries__/project'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Errors'

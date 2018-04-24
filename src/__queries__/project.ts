@@ -12,7 +12,6 @@ export const getProject = gql`
         }
     }
 `
-
 export const listProjects = gql`
     query listProjects {
         project {
@@ -25,7 +24,6 @@ export const listProjects = gql`
         }
     }
 `
-
 export const helpProject = gql`
     query helpProject {
         project {

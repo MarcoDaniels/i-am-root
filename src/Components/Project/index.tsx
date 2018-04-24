@@ -1,7 +1,7 @@
 import * as React from 'react'
-import GetProject from './Project/GetProject'
-import ListProject from './Project/ListProject'
-import HelpProject from './Project/HelpProject'
+import GetProject from './GetProject'
+import ListProject from './ListProject'
+import HelpProject from './HelpProject'
 
 interface ProjectProps {
     command: string

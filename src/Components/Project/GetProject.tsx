@@ -3,18 +3,12 @@ import { getProject } from '../../__queries__/project'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { Ooops, SomethingWentWrong } from '../Errors'
+import Loading from '../Loading'
 
 class ProjectQuery extends Query<getProjectQuery, getProjectQueryVariables> {}
 
 interface GetProjectProps {
     projectName: string
-}
-
-const Loading: React.SFC<GetProjectProps> = props => {
-    const {projectName} = props
-    return (
-        <div>fetching <span className="font-green">{projectName}</span> ...</div>
-    )
 }
 
 const ProjectNotFound: React.SFC<GetProjectProps> = props => {
@@ -37,7 +31,7 @@ export const GetProject: React.SFC<GetProjectProps> = props => {
                     return <SomethingWentWrong/>
                 }
                 if (loading) {
-                    return <Loading projectName={projectName}/>
+                    return <Loading name={projectName}/>
                 }
 
                 const projectData = data.project ? data.project : null

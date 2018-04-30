@@ -4,7 +4,7 @@ import { CommandNotFound } from './Errors'
 import User from './User'
 import Project from './Project'
 import About from './About'
-import Help from './Help'
+import ListHelp from './Help/ListHelp'
 
 type Props = {}
 type State = {
@@ -49,7 +49,7 @@ export class Prompt extends Component<Props, State> {
                 result.push(<About key={result.length} command={this.state.input} options={options}/>)
                 break
             case 'help':
-                result.push(<Help key={result.length}/>)
+                result.push(<ListHelp key={result.length}/>)
                 break
             case 'clear':
                 result = []

@@ -1,15 +1,14 @@
-import { helpQuery } from '../__generated__/types'
-import { help } from '../__queries__/help'
+import { listHelpQuery } from '../../__generated__/types'
+import { listHelp } from '../../__queries__/help'
 import { Query } from 'react-apollo'
 import * as React from 'react'
-import { SomethingWentWrong } from './Errors'
+import { SomethingWentWrong } from '../Errors'
 
-class HelpQuery extends Query<helpQuery> {}
+class HelpQuery extends Query<listHelpQuery> {}
 
-export const Help: React.SFC = () => {
-
+export const ListHelp: React.SFC = () => {
     return (
-        <HelpQuery query={help}>
+        <HelpQuery query={listHelp}>
             {({ loading, data, error }) => {
                 if (error || !data) {
                     return <SomethingWentWrong/>
@@ -33,7 +32,9 @@ export const Help: React.SFC = () => {
                         { features.map((feature, i) => feature && (
                             <div className="list" key={i}>
                                 <div>
-                                    <span className="text-head">{feature.type}: </span>
+                                    <span>{feature.type}</span>
+                                </div>
+                                <div>
                                     <span className="text-name"> {feature.description}</span>
                                 </div>
                                 <div>
@@ -49,4 +50,4 @@ export const Help: React.SFC = () => {
     )
 }
 
-export default Help
+export default ListHelp

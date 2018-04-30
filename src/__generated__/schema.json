@@ -227,6 +227,33 @@
           "description": "The root commands help",
           "fields": [
             {
+              "name": "get",
+              "description": "Help feature",
+              "args": [
+                {
+                  "name": "type",
+                  "description": "The type of help",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Help",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "list",
               "description": "Help feature",
               "args": [],
@@ -355,18 +382,6 @@
                   "name": "Project",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "help",
-              "description": "Help feature",
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Help",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -508,18 +523,6 @@
                   "name": "Experience",
                   "ofType": null
                 }
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "help",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "OBJECT",
-                "name": "Help",
-                "ofType": null
               },
               "isDeprecated": false,
               "deprecationReason": null

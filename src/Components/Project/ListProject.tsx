@@ -7,7 +7,6 @@ import { SomethingWentWrong } from '../Errors'
 class ProjectQuery extends Query<listProjectsQuery> {}
 
 export const ListProject: React.SFC = () => {
-
     return (
         <ProjectQuery query={listProjects}>
             {({ loading, data, error }) => {

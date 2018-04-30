@@ -41,7 +41,26 @@ export interface listAboutQuery {
   } | null,
 };
 
-export interface helpQuery {
+export interface getHelpQueryVariables {
+  helpType: string,
+};
+
+export interface getHelpQuery {
+  // The root commands help
+  help:  {
+    __typename: "HelpQuery",
+    // Help feature
+    get:  {
+      __typename: "Help",
+      // The usage of feature help command
+      usage: string | null,
+      // Help content features
+      content: Array< string | null > | null,
+    } | null,
+  } | null,
+};
+
+export interface listHelpQuery {
   // The root commands help
   help:  {
     __typename: "HelpQuery",
@@ -97,20 +116,5 @@ export interface listProjectsQuery {
       // The description of the project.
       description: string | null,
     } | null > | null,
-  } | null,
-};
-
-export interface helpProjectQuery {
-  // The projects base query
-  project:  {
-    __typename: "ProjectQuery",
-    // Help feature
-    help:  {
-      __typename: "Help",
-      // The usage of feature help command
-      usage: string | null,
-      // Help content features
-      content: Array< string | null > | null,
-    } | null,
   } | null,
 };

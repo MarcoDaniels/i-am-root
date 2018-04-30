@@ -1,19 +1,20 @@
-import { helpProjectQuery } from '../../__generated__/types'
-import { helpProject } from '../../__queries__/project'
+import { getHelpQuery, getHelpQueryVariables } from '../../__generated__/types'
+import { getHelp } from '../../__queries__/help'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Errors'
 
-class ProjectQuery extends Query<helpProjectQuery> {}
+class HelpQuery extends Query<getHelpQuery, getHelpQueryVariables> {}
 
-interface HelpProjectProps {
+interface GetHelpProps {
+    helpType: string
     command?: string
 }
 
-export const HelpProject: React.SFC<HelpProjectProps> = props => {
-    const { command } = props
+export const GetHelp: React.SFC<GetHelpProps> = props => {
+    const { command, helpType } = props
     return (
-        <ProjectQuery query={helpProject}>
+        <HelpQuery query={getHelp} variables={{helpType}}>
             {({ loading, data, error }) => {
                 if (error || !data) {
                     return <SomethingWentWrong/>
@@ -22,17 +23,17 @@ export const HelpProject: React.SFC<HelpProjectProps> = props => {
                     return <div>getting help ...</div>
                 }
 
-                const projectData = data.project ? data.project : null
-                if (!projectData) {
+                const helpData = data.help ? data.help : null
+                if (!helpData) {
                     return <SomethingWentWrong/>
                 }
 
-                const project = projectData.help ? projectData.help : null
-                if (!project) {
+                const help = helpData.get ? helpData.get : null
+                if (!help) {
                     return <SomethingWentWrong/>
                 }
 
-                const content = project.content ? project.content : null
+                const content = help.content ? help.content : null
                 if (!content) {
                     return <SomethingWentWrong/>
                 }
@@ -44,7 +45,7 @@ export const HelpProject: React.SFC<HelpProjectProps> = props => {
                         <div>{commandHelp}</div>
                         <div className="help-usage">
                             <span className="font-brown">usage: </span>
-                            <span className="font-green">{project.usage}</span>
+                            <span className="font-green">{help.usage}</span>
                         </div>
                         <div className="help-content">
                             {content.map((item, i) => item && (
@@ -54,8 +55,8 @@ export const HelpProject: React.SFC<HelpProjectProps> = props => {
                     </div>
                 )
             }}
-        </ProjectQuery>
+        </HelpQuery>
     )
 }
 
-export default HelpProject
+export default GetHelp

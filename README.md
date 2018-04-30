@@ -3,7 +3,6 @@
 _root is powered by React_
 
 ## TODO
-* [x] use help
-* [ ] Get About
-* [ ] Help About
+* [ ] add SEO friendly tags
 * [ ] welcome with "writing" opening
+* [ ] implement experience

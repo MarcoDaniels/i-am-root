@@ -7,7 +7,6 @@ import { SomethingWentWrong } from '../Errors'
 class AboutQuery extends Query<listAboutQuery> {}
 
 export const ListAbout: React.SFC = () => {
-
     return (
         <AboutQuery query={listAbout}>
             {({loading, data, error}) => {

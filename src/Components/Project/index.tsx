@@ -1,7 +1,7 @@
 import * as React from 'react'
+import GetHelp from '../Help/GetHelp'
 import GetProject from './GetProject'
 import ListProject from './ListProject'
-import HelpProject from './HelpProject'
 
 interface ProjectProps {
     command: string
@@ -20,7 +20,7 @@ export const Project: React.SFC<ProjectProps> = props => {
                 // because of whitespace
                 const projectName = options.slice(flags[0].length).slice(1)
                 if (!projectName) {
-                    return <HelpProject command={command}/>
+                    return <GetHelp helpType="project" command={command}/>
                 }
                 return <GetProject projectName={projectName}/>
             case '-ls':
@@ -28,13 +28,13 @@ export const Project: React.SFC<ProjectProps> = props => {
                 return <ListProject/>
             case '-h':
             case '--help':
-                return <HelpProject/>
+                return <GetHelp helpType="project"/>
             default:
-                return <HelpProject command={command}/>
+                return <GetHelp helpType="project" command={command}/>
         }
     }
 
-    return <HelpProject command={command}/>
+    return <GetHelp helpType="project" command={command}/>
 }
 
 export default Project

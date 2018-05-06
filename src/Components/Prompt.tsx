@@ -68,22 +68,31 @@ export class Prompt extends Component<Props, State> {
 
     render() {
         return (
-            <div>
-                <div className="result">
+            <div className="row">
+                <div className="row">
                     {this.state.results.map(value => {
-                        return value
+                        let key = value.key ? Number(value.key) + 1 : 1
+                        return (
+                            <div className="result" key={key}>
+                                {value}
+                            </div>
+                        )
                     })}
                 </div>
-                <form onSubmit={this.handleSubmit}>
-                    <User/>
-                    <input
-                        type="text"
-                        size={50}
-                        autoFocus={true}
-                        value={this.state.input}
-                        onChange={this.handleChange}
-                    />
-                </form>
+                <div className="row prompt">
+                    <form onSubmit={this.handleSubmit}>
+                        <label className="input-command-label">
+                            <User/>
+                        </label>
+                        <input
+                            className="input-command"
+                            type="text"
+                            autoFocus={true}
+                            value={this.state.input}
+                            onChange={this.handleChange}
+                        />
+                    </form>
+                </div>
             </div>
         )
     }

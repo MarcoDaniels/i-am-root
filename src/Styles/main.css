@@ -5,20 +5,22 @@ body {
     font-size: 13px !important;
 }
 
-form {
-    display: inline-flex;
+label.input-command-label {
+    float: left;
 }
 
-input {
+input.input-command,
+input.input-command:focus {
     font-size: 13px;
-    margin-top: 14px;
-    margin-left: 5px;
-    padding-left: 3px;
+    padding: 0 0 0 3px;
+    height: auto;
     background-color: #3a3a3a;
     color: #FFFFFF;
     border: none;
     outline: none;
     border-bottom: 1px solid #CD853F;
+    border-radius: unset;
+    width: 50%;
 }
 
 h2 {
@@ -26,11 +28,11 @@ h2 {
     font-style: italic;
 }
 
-.user {
+.prompt {
     margin-top: 15px;
 }
-
 .result {
+    margin-top: 15px;
     color: #FFFFFF;
 }
 
@@ -56,29 +58,17 @@ a:hover,
     color: #000000;
 }
 
-div.header {
-    display: -webkit-box;
-}
-
-pre.i-am-root {
-    float: left;
+.i-am-root {
     font-size: 20px;
-    font-weight: bold;
-    padding: 0 25px;
+    font-weight: 700;
     text-align: center;
     line-height: 22px;
     overflow-x: hidden;
-    color: #32cd32;
-    margin: 0;
+    white-space: pre;
 }
 
 div.welcome {
     float: left;
-    padding: 0 25px;
-}
-
-pre.i-am-root > span {
-    display: -webkit-box;
 }
 
 div.list {
@@ -92,4 +82,8 @@ div.help-usage {
 div.help-content {
     margin-top: 5px;
     margin-left: 10px;
+}
+
+.app {
+    margin: 15px;
 }

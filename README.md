@@ -3,6 +3,5 @@
 _root is powered by React_
 
 ## TODO
-* [ ] add SEO friendly tags
-* [ ] welcome with "writing" opening
+* [ ] scroll to prompt when component data is loaded
 * [ ] implement experience

@@ -15,6 +15,8 @@ type State = {
 
 export class Prompt extends Component<Props, State> {
 
+    private scrollPrompt: any
+
     constructor(props: any) {
         super(props)
         this.state = {input: '', lastCommand: '', results: []}
@@ -63,7 +65,12 @@ export class Prompt extends Component<Props, State> {
             lastCommand: this.state.input,
             results: result
         })
+
         event.preventDefault()
+    }
+
+    componentDidUpdate() {
+        this.scrollPrompt.scrollIntoView()
     }
 
     render() {
@@ -90,6 +97,9 @@ export class Prompt extends Component<Props, State> {
                             autoFocus={true}
                             value={this.state.input}
                             onChange={this.handleChange}
+                            ref={prompt => {
+                                this.scrollPrompt = prompt
+                            }}
                         />
                     </form>
                 </div>

@@ -7,6 +7,7 @@ body {
 
 label.input-command-label {
     float: left;
+    font-weight: unset;
 }
 
 input.input-command,
@@ -23,6 +24,9 @@ input.input-command:focus {
     width: 50%;
 }
 
+h1 {
+    margin: 0 0 5px 0;
+}
 h2 {
     font-weight: normal;
     font-style: italic;

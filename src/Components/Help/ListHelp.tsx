@@ -26,7 +26,6 @@ export const ListHelp: React.SFC = () => {
                 if (!features) {
                     return <SomethingWentWrong/>
                 }
-
                 return (
                     <div>
                         { features.map((feature, i) => feature && (

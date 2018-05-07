@@ -1,7 +1,7 @@
 {
   "name": "i-am-root",
-  "version": "0.1.0",
-  "homepage": "",
+  "version": "0.0.1",
+  "homepage": "https://mylittlevirtualfriend.com/",
   "author": "Marco Daniel Martins <marcodanielmartins@gmail.com>",
   "license": "ISC",
   "private": true,
@@ -11,7 +11,7 @@
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "generate": "yarn schema && yarn types",
-    "schema": "apollo-codegen introspect-schema http://localhost:5000/web-verse/us-central1/operator/graphql --output ./src/__generated__/schema.json",
+    "schema": "apollo-codegen introspect-schema http://localhost:3000/graphql --output ./src/__generated__/schema.json",
     "types": "apollo-codegen generate ./src/__queries__/*.ts --addTypename --schema ./src/__generated__/schema.json --target typescript --output ./src/__generated__/types.ts"
   },
   "dependencies": {

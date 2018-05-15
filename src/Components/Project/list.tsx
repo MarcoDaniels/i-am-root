@@ -3,6 +3,7 @@ import { listProjects } from './project.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Utils/Errors'
+import { scrollIntoView } from '../Utils/Loading'
 
 class ProjectQuery extends Query<listProjectsQuery> {}
 
@@ -28,7 +29,7 @@ export const ProjectList: React.SFC = () => {
                 }
 
                 return (
-                    <div>
+                    <div ref={instance => { scrollIntoView(instance) }}>
                         { projects.map((project, i) => project && (
                         <div className="list" key={i}>
                             <div>

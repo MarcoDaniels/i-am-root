@@ -3,6 +3,7 @@ import { getHelp } from './help.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Utils/Errors'
+import { scrollIntoView } from '../Utils/Loading'
 
 class HelpQuery extends Query<getHelpQuery, getHelpQueryVariables> {}
 
@@ -41,7 +42,7 @@ export const HelpGet: React.SFC<GetHelpProps> = props => {
                 const commandHelp = command ? command + ' is not a valid command ...' : null
 
                 return (
-                    <div>
+                    <div ref={instance => { scrollIntoView(instance) }}>
                         <div>{commandHelp}</div>
                         <div className="help-usage">
                             <span className="font-brown">usage: </span>

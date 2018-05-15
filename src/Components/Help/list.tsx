@@ -3,6 +3,7 @@ import { listHelp } from './help.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Utils/Errors'
+import { scrollIntoView } from '../Utils/Loading'
 
 class HelpQuery extends Query<listHelpQuery> {}
 
@@ -27,7 +28,7 @@ export const HelpList: React.SFC = () => {
                     return <SomethingWentWrong/>
                 }
                 return (
-                    <div>
+                    <div ref={instance => { scrollIntoView(instance) }}>
                         { features.map((feature, i) => feature && (
                             <div className="list" key={i}>
                                 <div>

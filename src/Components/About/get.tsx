@@ -3,7 +3,7 @@ import { getAboutQuery, getAboutQueryVariables } from '../../Query/types'
 import * as React from 'react'
 import { getAbout } from './about.queries'
 import { Ooops, SomethingWentWrong } from '../Utils/Errors'
-import Loading from '../Utils/Loading'
+import Loading, { scrollIntoView } from '../Utils/Loading'
 
 class AboutQuery extends Query<getAboutQuery, getAboutQueryVariables> {}
 
@@ -14,7 +14,7 @@ interface GetAboutProps {
 const UserNotFound: React.SFC<GetAboutProps> = props => {
     const {userName} = props
     return (
-        <div>
+        <div ref={instance => { scrollIntoView(instance) }}>
             <Ooops/>
             <div>user: <span className="font-green">{userName}</span> does not exist</div>
             <div>type <span className="font-green">about -ls</span> to list all users</div>
@@ -45,7 +45,7 @@ export const AboutGet: React.SFC<GetAboutProps> = props => {
                 }
 
                 return (
-                    <div>
+                    <div ref={instance => { scrollIntoView(instance) }}>
                         <h2 className="font-green">{user.name}</h2>
                         <p className="font-brown">{user.title}</p>
                         <div className="help-content">

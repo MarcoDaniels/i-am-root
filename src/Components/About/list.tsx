@@ -3,6 +3,7 @@ import { listAbout } from './about.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Utils/Errors'
+import { scrollIntoView } from '../Utils/Loading'
 
 class AboutQuery extends Query<listAboutQuery> {}
 
@@ -28,7 +29,7 @@ export const AboutList: React.SFC = () => {
                 }
 
                 return (
-                    <div>
+                    <div ref={instance => { scrollIntoView(instance) }}>
                         {users.map((user, i) => user && (
                             <div className="list" key={i}>
                                 <div>

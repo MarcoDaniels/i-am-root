@@ -3,7 +3,7 @@ import { getProject } from './project.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { Ooops, SomethingWentWrong } from '../Utils/Errors'
-import Loading from '../Utils/Loading'
+import Loading, { scrollIntoView } from '../Utils/Loading'
 
 class ProjectQuery extends Query<getProjectQuery, getProjectQueryVariables> {}
 
@@ -14,7 +14,7 @@ interface GetProjectProps {
 const ProjectNotFound: React.SFC<GetProjectProps> = props => {
     const {projectName} = props
     return (
-        <div>
+        <div ref={instance => { scrollIntoView(instance) }}>
             <Ooops/>
             <div>project: <span className="font-green">{projectName}</span> does not exist</div>
             <div>type <span className="font-green">projects -ls</span> to list all projects</div>
@@ -45,7 +45,7 @@ export const ProjectGet: React.SFC<GetProjectProps> = props => {
                 }
 
                 return (
-                    <div>
+                    <div ref={instance => { scrollIntoView(instance) }}>
                         <h2 className="font-green">{project.name}</h2>
                         <p>{project.details}</p>
                         <p>homepage: <a href={project.homepage ? project.homepage : ''}>{project.homepage}</a></p>

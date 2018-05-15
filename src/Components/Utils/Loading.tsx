@@ -11,4 +11,8 @@ export const Loading: React.SFC<LoadingProps> = props => {
     )
 }
 
+export function scrollIntoView(instance: any) {
+    instance.scrollIntoView()
+}
+
 export default Loading

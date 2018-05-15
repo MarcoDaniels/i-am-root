@@ -9,5 +9,4 @@ _Say hello to [my little virtual friend](https://mylittlevirtualfriend.com/)_
 
 
 ## TODO
-* [ ] scroll to prompt when component data is loaded (possible refactor of CLI)
 * [ ] implement experience

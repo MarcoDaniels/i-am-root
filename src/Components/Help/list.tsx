@@ -1,12 +1,12 @@
-import { listHelpQuery } from '../../__generated__/types'
-import { listHelp } from '../../__queries__/help'
+import { listHelpQuery } from '../../Query/types'
+import { listHelp } from './help.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Errors'
 
 class HelpQuery extends Query<listHelpQuery> {}
 
-export const ListHelp: React.SFC = () => {
+export const HelpList: React.SFC = () => {
     return (
         <HelpQuery query={listHelp}>
             {({ loading, data, error }) => {
@@ -49,4 +49,4 @@ export const ListHelp: React.SFC = () => {
     )
 }
 
-export default ListHelp
+export default HelpList

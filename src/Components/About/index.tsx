@@ -1,7 +1,7 @@
 import * as React from 'react'
-import GetHelp from '../Help/GetHelp'
-import GetAbout from './GetAbout'
-import ListAbout from './ListAbout'
+import HelpGet from '../Help/get'
+import AboutGet from './get'
+import AboutList from './list'
 
 interface AboutProps {
     command: string
@@ -20,21 +20,21 @@ export const About: React.SFC<AboutProps> = props => {
                 // because of whitespace
                 const userName = options.slice(flags[0].length).slice(1)
                 if (!userName) {
-                    return <GetHelp helpType="about" command={command}/>
+                    return <HelpGet helpType="about" command={command}/>
                 }
-                return <GetAbout userName={userName}/>
+                return <AboutGet userName={userName}/>
             case '-ls':
             case '--list':
-                return <ListAbout/>
+                return <AboutList/>
             case '-h':
             case '--help':
-                return <GetHelp helpType="about"/>
+                return <HelpGet helpType="about"/>
             default:
-                return <GetHelp helpType="about" command={command}/>
+                return <HelpGet helpType="about" command={command}/>
         }
     }
 
-    return <GetHelp helpType="about" command={command}/>
+    return <HelpGet helpType="about" command={command}/>
 }
 
 export default About

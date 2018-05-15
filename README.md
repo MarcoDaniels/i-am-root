@@ -9,7 +9,6 @@ _Say hello to [my little virtual friend](https://mylittlevirtualfriend.com/)_
 
 
 ## TODO
-* [ ] refactor graphql queries to live close from the components
 * [ ] structure components folder
 * [ ] scroll to prompt when component data is loaded (possible refactor of Prompt)
 * [ ] implement experience

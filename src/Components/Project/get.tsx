@@ -1,5 +1,5 @@
-import { getProjectQuery, getProjectQueryVariables } from '../../__generated__/types'
-import { getProject } from '../../__queries__/project'
+import { getProjectQuery, getProjectQueryVariables } from '../../Query/types'
+import { getProject } from './project.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { Ooops, SomethingWentWrong } from '../Errors'
@@ -22,7 +22,7 @@ const ProjectNotFound: React.SFC<GetProjectProps> = props => {
     )
 }
 
-export const GetProject: React.SFC<GetProjectProps> = props => {
+export const ProjectGet: React.SFC<GetProjectProps> = props => {
     const {projectName} = props
     return (
         <ProjectQuery query={getProject} variables={{projectName}}>
@@ -57,4 +57,4 @@ export const GetProject: React.SFC<GetProjectProps> = props => {
     )
 }
 
-export default GetProject
+export default ProjectGet

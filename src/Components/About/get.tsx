@@ -1,7 +1,7 @@
 import { Query } from 'react-apollo'
-import { getAboutQuery, getAboutQueryVariables } from '../../__generated__/types'
+import { getAboutQuery, getAboutQueryVariables } from '../../Query/types'
 import * as React from 'react'
-import { getAbout } from '../../__queries__/about'
+import { getAbout } from './about.queries'
 import { Ooops, SomethingWentWrong } from '../Errors'
 import Loading from '../Loading'
 
@@ -22,7 +22,7 @@ const UserNotFound: React.SFC<GetAboutProps> = props => {
     )
 }
 
-export const GetAbout: React.SFC<GetAboutProps> = props => {
+export const AboutGet: React.SFC<GetAboutProps> = props => {
     const {userName} = props
     return (
         <AboutQuery query={getAbout} variables={{userName}}>
@@ -60,4 +60,4 @@ export const GetAbout: React.SFC<GetAboutProps> = props => {
     )
 }
 
-export default GetAbout
+export default AboutGet

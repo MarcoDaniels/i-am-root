@@ -1,12 +1,12 @@
-import { listProjectsQuery } from '../../__generated__/types'
-import { listProjects } from '../../__queries__/project'
+import { listProjectsQuery } from '../../Query/types'
+import { listProjects } from './project.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Errors'
 
 class ProjectQuery extends Query<listProjectsQuery> {}
 
-export const ListProject: React.SFC = () => {
+export const ProjectList: React.SFC = () => {
     return (
         <ProjectQuery query={listProjects}>
             {({ loading, data, error }) => {
@@ -52,4 +52,4 @@ export const ListProject: React.SFC = () => {
     )
 }
 
-export default ListProject
+export default ProjectList

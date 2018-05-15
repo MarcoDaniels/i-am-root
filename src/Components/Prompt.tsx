@@ -4,7 +4,7 @@ import { CommandNotFound } from './Errors'
 import User from './User'
 import Project from './Project'
 import About from './About'
-import ListHelp from './Help/ListHelp'
+import HelpList from './Help/list'
 
 type Props = {}
 type State = {
@@ -15,7 +15,7 @@ type State = {
 
 export class Prompt extends Component<Props, State> {
 
-    private scrollPrompt: any
+    // private scrollPrompt: any
 
     constructor(props: any) {
         super(props)
@@ -51,7 +51,7 @@ export class Prompt extends Component<Props, State> {
                 result.push(<About key={result.length} command={this.state.input} options={options}/>)
                 break
             case 'help':
-                result.push(<ListHelp key={result.length}/>)
+                result.push(<HelpList key={result.length}/>)
                 break
             case 'clear':
                 result = []
@@ -70,7 +70,7 @@ export class Prompt extends Component<Props, State> {
     }
 
     componentDidUpdate() {
-        this.scrollPrompt.scrollIntoView()
+        // this.scrollPrompt.scrollIntoView()
     }
 
     render() {
@@ -97,9 +97,11 @@ export class Prompt extends Component<Props, State> {
                             autoFocus={true}
                             value={this.state.input}
                             onChange={this.handleChange}
+                            /*
                             ref={prompt => {
                                 this.scrollPrompt = prompt
                             }}
+                            */
                         />
                     </form>
                 </div>

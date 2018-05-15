@@ -1,12 +1,12 @@
-import { listAboutQuery } from '../../__generated__/types'
-import { listAbout } from '../../__queries__/about'
+import { listAboutQuery } from '../../Query/types'
+import { listAbout } from './about.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Errors'
 
 class AboutQuery extends Query<listAboutQuery> {}
 
-export const ListAbout: React.SFC = () => {
+export const AboutList: React.SFC = () => {
     return (
         <AboutQuery query={listAbout}>
             {({loading, data, error}) => {
@@ -52,4 +52,4 @@ export const ListAbout: React.SFC = () => {
     )
 }
 
-export default ListAbout
+export default AboutList

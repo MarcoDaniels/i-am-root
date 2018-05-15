@@ -1,5 +1,5 @@
-import { getHelpQuery, getHelpQueryVariables } from '../../__generated__/types'
-import { getHelp } from '../../__queries__/help'
+import { getHelpQuery, getHelpQueryVariables } from '../../Query/types'
+import { getHelp } from './help.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
 import { SomethingWentWrong } from '../Errors'
@@ -11,7 +11,7 @@ interface GetHelpProps {
     command?: string
 }
 
-export const GetHelp: React.SFC<GetHelpProps> = props => {
+export const HelpGet: React.SFC<GetHelpProps> = props => {
     const { command, helpType } = props
     return (
         <HelpQuery query={getHelp} variables={{helpType}}>
@@ -59,4 +59,4 @@ export const GetHelp: React.SFC<GetHelpProps> = props => {
     )
 }
 
-export default GetHelp
+export default HelpGet

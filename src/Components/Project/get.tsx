@@ -2,8 +2,8 @@ import { getProjectQuery, getProjectQueryVariables } from '../../Query/types'
 import { getProject } from './project.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
-import { Ooops, SomethingWentWrong } from '../Errors'
-import Loading from '../Loading'
+import { Ooops, SomethingWentWrong } from '../Utils/Errors'
+import Loading from '../Utils/Loading'
 
 class ProjectQuery extends Query<getProjectQuery, getProjectQueryVariables> {}
 

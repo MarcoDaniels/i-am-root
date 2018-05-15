@@ -2,7 +2,7 @@ import { listProjectsQuery } from '../../Query/types'
 import { listProjects } from './project.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
-import { SomethingWentWrong } from '../Errors'
+import { SomethingWentWrong } from '../Utils/Errors'
 
 class ProjectQuery extends Query<listProjectsQuery> {}
 

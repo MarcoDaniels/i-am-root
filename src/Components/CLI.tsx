@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Component, ReactElement } from 'react'
-import { CommandNotFound } from './Errors'
+import { CommandNotFound } from './Utils/Errors'
 import User from './User'
 import Project from './Project'
 import About from './About'
@@ -13,9 +13,7 @@ type State = {
     results: ReactElement<any>[]
 }
 
-export class Prompt extends Component<Props, State> {
-
-    // private scrollPrompt: any
+export class CLI extends Component<Props, State> {
 
     constructor(props: any) {
         super(props)
@@ -69,10 +67,6 @@ export class Prompt extends Component<Props, State> {
         event.preventDefault()
     }
 
-    componentDidUpdate() {
-        // this.scrollPrompt.scrollIntoView()
-    }
-
     render() {
         return (
             <div className="row">
@@ -97,11 +91,6 @@ export class Prompt extends Component<Props, State> {
                             autoFocus={true}
                             value={this.state.input}
                             onChange={this.handleChange}
-                            /*
-                            ref={prompt => {
-                                this.scrollPrompt = prompt
-                            }}
-                            */
                         />
                     </form>
                 </div>
@@ -110,4 +99,4 @@ export class Prompt extends Component<Props, State> {
     }
 }
 
-export default Prompt
+export default CLI

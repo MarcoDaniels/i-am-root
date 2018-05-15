@@ -18,6 +18,7 @@ export const listHelp = gql`
                 type
                 description
                 usage
+                content
             }
         }
     }

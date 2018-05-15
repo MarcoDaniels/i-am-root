@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Root } from './Root'
-import { Welcome } from './Welcome'
+import Root from './Root'
+import Welcome from './Welcome'
 
 export const Header = () =>
     <div className="row">

@@ -2,7 +2,7 @@ import { listHelpQuery } from '../../Query/types'
 import { listHelp } from './help.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
-import { SomethingWentWrong } from '../Errors'
+import { SomethingWentWrong } from '../Utils/Errors'
 
 class HelpQuery extends Query<listHelpQuery> {}
 
@@ -32,13 +32,16 @@ export const HelpList: React.SFC = () => {
                             <div className="list" key={i}>
                                 <div>
                                     <span>{feature.type}</span>
-                                </div>
-                                <div>
                                     <span className="text-name"> {feature.description}</span>
                                 </div>
                                 <div>
                                     <span className="text-head">usage: </span>
                                     <span className="text-name">{feature.usage}</span>
+                                </div>
+                                <div className="help-content">
+                                    {feature.content && (feature.content.map((item, key) => item && (
+                                        <div key={key}>{item}</div>
+                                    )))}
                                 </div>
                             </div>
                         ))}

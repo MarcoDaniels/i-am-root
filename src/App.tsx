@@ -3,10 +3,10 @@ import './Styles/normalize.css'
 import './Styles/main.css'
 import * as React from 'react'
 import Header from './Components/Header'
-import Prompt from './Components/Prompt'
+import CLI from './Components/CLI'
 
 export const App = () =>
     <div className="app">
         <Header/>
-        <Prompt/>
+        <CLI/>
     </div>

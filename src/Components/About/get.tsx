@@ -2,8 +2,8 @@ import { Query } from 'react-apollo'
 import { getAboutQuery, getAboutQueryVariables } from '../../Query/types'
 import * as React from 'react'
 import { getAbout } from './about.queries'
-import { Ooops, SomethingWentWrong } from '../Errors'
-import Loading from '../Loading'
+import { Ooops, SomethingWentWrong } from '../Utils/Errors'
+import Loading from '../Utils/Loading'
 
 class AboutQuery extends Query<getAboutQuery, getAboutQueryVariables> {}
 

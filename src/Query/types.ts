@@ -73,6 +73,8 @@ export interface listHelpQuery {
       description: string | null,
       // The usage of feature help command
       usage: string | null,
+      // Help content features
+      content: Array< string | null > | null,
     } | null > | null,
   } | null,
 };

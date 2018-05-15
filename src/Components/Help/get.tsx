@@ -2,7 +2,7 @@ import { getHelpQuery, getHelpQueryVariables } from '../../Query/types'
 import { getHelp } from './help.queries'
 import { Query } from 'react-apollo'
 import * as React from 'react'
-import { SomethingWentWrong } from '../Errors'
+import { SomethingWentWrong } from '../Utils/Errors'
 
 class HelpQuery extends Query<getHelpQuery, getHelpQueryVariables> {}
 

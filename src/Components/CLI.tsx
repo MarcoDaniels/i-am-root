@@ -9,7 +9,9 @@ import HelpList from './Help/list'
 type Props = {}
 type State = {
     input: string
-    lastCommand: string
+    last: string
+    position: number
+    history: string[]
     results: ReactElement<any>[]
 }
 
@@ -17,17 +19,47 @@ export class CLI extends Component<Props, State> {
 
     constructor(props: any) {
         super(props)
-        this.state = {input: '', lastCommand: '', results: []}
+        this.state = {input: '', last: '', position: 0, history: [], results: []}
 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleNavigation = this.handleNavigation.bind(this)
+    }
+
+    handleNavigation(event: any) {
+        switch (event.keyCode) {
+            case 38:
+            case 40:
+                console.log(event.keyCode)
+                let position = this.state.position
+                if (event.keyCode === 38) { position-- }
+                if (event.keyCode === 40) { position++ }
+
+                if (this.state.history[position]) {
+                    this.setState({
+                        input: this.state.history[position],
+                        position: position
+                    })
+                } else {
+                    this.setState({input: ''})
+                }
+
+                break
+            default:
+        }
     }
 
     handleChange(event: any) {
-        this.setState({input: event.target.value})
+        event.preventDefault()
+
+        this.setState({
+            input: event.target.value
+        })
     }
 
     handleSubmit(event: any) {
+        event.preventDefault()
+
         let fullInput = this.state.input.split(' ')
         let command = fullInput[0]
         fullInput.shift() // the leftovers are options
@@ -58,13 +90,16 @@ export class CLI extends Component<Props, State> {
                 result.push(<CommandNotFound key={result.length} command={this.state.input}/>)
         }
 
+        let history = this.state.history
+        history.push(this.state.input)
+
         this.setState({
             input: '',
-            lastCommand: this.state.input,
+            last: this.state.input,
+            position: history.length,
+            history: history,
             results: result
         })
-
-        event.preventDefault()
     }
 
     render() {
@@ -91,6 +126,7 @@ export class CLI extends Component<Props, State> {
                             autoFocus={true}
                             value={this.state.input}
                             onChange={this.handleChange}
+                            onKeyDown={this.handleNavigation}
                         />
                     </form>
                 </div>

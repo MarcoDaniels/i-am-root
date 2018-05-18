@@ -11,6 +11,13 @@ export const Loading: React.SFC<LoadingProps> = props => {
     )
 }
 
+export const Opening: React.SFC<LoadingProps> = props => {
+    const {name} = props
+    return (
+        <div>opening <span className="font-green">{name}</span> ...</div>
+    )
+}
+
 export function scrollIntoView(instance: any) {
     if (instance !== null) {
         instance.scrollIntoView()

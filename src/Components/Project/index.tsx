@@ -2,6 +2,7 @@ import * as React from 'react'
 import HelpGet from '../Help/get'
 import ProjectGet from './get'
 import ProjectList from './list'
+import ProjectOpen from './open'
 
 interface ProjectProps {
     command: string
@@ -14,15 +15,20 @@ export const Project: React.SFC<ProjectProps> = props => {
     let flags = expression.exec(options)
 
     if (flags) {
+        const projectName = options.slice(flags[0].length).slice(1)
         switch (flags[0]) {
             case '-i':
             case '--info':
-                // because of whitespace
-                const projectName = options.slice(flags[0].length).slice(1)
                 if (!projectName) {
                     return <HelpGet helpType="project" command={command}/>
                 }
                 return <ProjectGet projectName={projectName}/>
+            case '-o':
+            case '--open':
+                if (!projectName) {
+                    return <HelpGet helpType="project" command={command}/>
+                }
+                return <ProjectOpen projectName={projectName}/>
             case '-ls':
             case '--list':
                 return <ProjectList/>

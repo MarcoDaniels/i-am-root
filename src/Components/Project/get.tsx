@@ -5,13 +5,13 @@ import * as React from 'react'
 import { Ooops, SomethingWentWrong } from '../Utils/Errors'
 import Loading, { scrollIntoView } from '../Utils/Loading'
 
-class ProjectQuery extends Query<getProjectQuery, getProjectQueryVariables> {}
+export class ProjectQuery extends Query<getProjectQuery, getProjectQueryVariables> {}
 
-interface GetProjectProps {
+export interface GetProjectProps {
     projectName: string
 }
 
-const ProjectNotFound: React.SFC<GetProjectProps> = props => {
+export const ProjectNotFound: React.SFC<GetProjectProps> = props => {
     const {projectName} = props
     return (
         <div ref={instance => { scrollIntoView(instance) }}>

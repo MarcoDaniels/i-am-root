@@ -2,6 +2,7 @@ import * as React from 'react'
 import HelpGet from '../Help/get'
 import AboutGet from './get'
 import AboutList from './list'
+import AboutGetWork from './work'
 
 interface AboutProps {
     command: string
@@ -14,11 +15,10 @@ export const About: React.SFC<AboutProps> = props => {
     let flags = expression.exec(options)
 
     if (flags) {
+        const userName = options.slice(flags[0].length).slice(1)
         switch (flags[0]) {
             case '-i':
             case '--info':
-                // because of whitespace
-                const userName = options.slice(flags[0].length).slice(1)
                 if (!userName) {
                     return <HelpGet helpType="about" command={command}/>
                 }
@@ -26,6 +26,12 @@ export const About: React.SFC<AboutProps> = props => {
             case '-ls':
             case '--list':
                 return <AboutList/>
+            case '-w':
+            case '--work':
+                if (!userName) {
+                    return <HelpGet helpType="about" command={command}/>
+                }
+                return <AboutGetWork userName={userName}/>
             case '-h':
             case '--help':
                 return <HelpGet helpType="about"/>

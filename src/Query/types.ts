@@ -41,6 +41,37 @@ export interface listAboutQuery {
   } | null,
 };
 
+export interface getAboutWorkQueryVariables {
+  userName: string,
+};
+
+export interface getAboutWorkQuery {
+  // The user query
+  user:  {
+    __typename: "UserQuery",
+    // This is user.
+    get:  {
+      __typename: "User",
+      // Work experience.
+      experience:  Array< {
+        __typename: "Experience",
+        // The position name.
+        position: string | null,
+        // The workplace name.
+        workplace: string | null,
+        // The start date of the experience
+        from: string | null,
+        // The end date of the experience
+        to: string | null,
+        // The city or/and country.
+        location: string | null,
+        // Details of the experience.
+        details: Array< string | null > | null,
+      } | null > | null,
+    } | null,
+  } | null,
+};
+
 export interface getHelpQueryVariables {
   helpType: string,
 };

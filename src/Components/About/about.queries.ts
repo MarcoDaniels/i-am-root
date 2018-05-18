@@ -24,3 +24,20 @@ export const listAbout = gql`
         }
     }
 `
+
+export const getAboutWork = gql`
+    query getAboutWork($userName: String!){
+        user {
+            get(userName: $userName) {
+                experience {
+                    position
+                    workplace
+                    from
+                    to
+                    location
+                    details
+                }
+            }
+        }
+    }
+`

@@ -7,11 +7,11 @@ import Loading, { scrollIntoView } from '../Utils/Loading'
 
 class AboutQuery extends Query<getAboutQuery, getAboutQueryVariables> {}
 
-interface GetAboutProps {
+export interface GetAboutProps {
     userName: string
 }
 
-const UserNotFound: React.SFC<GetAboutProps> = props => {
+export const UserNotFound: React.SFC<GetAboutProps> = props => {
     const {userName} = props
     return (
         <div ref={instance => { scrollIntoView(instance) }}>

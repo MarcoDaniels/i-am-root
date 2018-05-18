@@ -7,6 +7,7 @@ export const getProject = gql`
                 name
                 homepage
                 releaseDate
+                description
                 details
             }
         }

@@ -46,12 +46,18 @@ export const AboutGet: React.SFC<GetAboutProps> = props => {
 
                 return (
                     <div ref={instance => { scrollIntoView(instance) }}>
-                        <h2 className="font-green">{user.name}</h2>
-                        <p className="font-brown">{user.title}</p>
-                        <div className="help-content">
-                        {user.description && user.description.map((item, i) => item && (
-                            <div key={i}>{item}</div>
-                        ))}
+                        <div className="list">
+                            <div>
+                                <span className="text-name">{user.name}</span>
+                            </div>
+                            <div>
+                                <span className="text-head">{user.title}</span>
+                            </div>
+                            <div>
+                                {user.description && user.description.map((item, i) => item && (
+                                    <div key={i}>{item}</div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 )

@@ -127,8 +127,10 @@ export interface getProjectQuery {
       homepage: string | null,
       // The released data of the project.
       releaseDate: string | null,
+      // The description of the project.
+      description: string | null,
       // Details of the project specifications.
-      details: string | null,
+      details: Array< string | null > | null,
     } | null,
   } | null,
 };

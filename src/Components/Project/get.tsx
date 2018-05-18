@@ -46,10 +46,29 @@ export const ProjectGet: React.SFC<GetProjectProps> = props => {
 
                 return (
                     <div ref={instance => { scrollIntoView(instance) }}>
-                        <h2 className="font-green">{project.name}</h2>
-                        <p>{project.details}</p>
-                        <p>homepage: <a href={project.homepage ? project.homepage : ''}>{project.homepage}</a></p>
-                        <p>released in {project.releaseDate}</p>
+                        <div className="list">
+                            <div>
+                                <span className="text-name">{project.name}</span>
+                            </div>
+                            <div>
+                                <span className="text-head">{project.description}</span>
+                            </div>
+                            <div>
+                                <span className="text-head">homepage: </span>
+                                <a className="text-name" href={project.homepage ? project.homepage : ''}>{project.homepage}</a>
+                            </div>
+                            <div>
+                                <span className="text-head">released in: </span>
+                                <span className="text-name">{project.releaseDate}</span>
+                            </div>
+                            <div>
+                                {project.details && (project.details.map((item, key) => item && (
+                                    <div key={key}>
+                                        <span>{item}</span>
+                                    </div>
+                                )))}
+                            </div>
+                        </div>
                     </div>
                 )
             }}

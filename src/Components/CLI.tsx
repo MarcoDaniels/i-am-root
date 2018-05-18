@@ -30,7 +30,6 @@ export class CLI extends Component<Props, State> {
         switch (event.keyCode) {
             case 38:
             case 40:
-                console.log(event.keyCode)
                 let position = this.state.position
                 if (event.keyCode === 38) { position-- }
                 if (event.keyCode === 40) { position++ }

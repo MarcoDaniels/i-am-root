@@ -16,7 +16,9 @@ export class ProjectOpen extends Component<Props, any> {
     }
 
     openProject(element: any) {
-        element.click()
+        if (element !== null) {
+            element.click()
+        }
     }
 
     render() {

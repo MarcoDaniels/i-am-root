@@ -33,7 +33,7 @@ export const AboutGetWork: React.SFC<GetAboutProps> = props => {
                 const experiences = user.experience ? user.experience : null
                 if (!experiences || !experiences.length) {
                     return (
-                        <div>
+                        <div ref={instance => { scrollIntoView(instance) }}>
                             <div>
                                 <span className="text-head">{userName}</span>
                                 <span className="text-name"> has no work experience...</span>

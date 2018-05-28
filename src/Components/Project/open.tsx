@@ -5,7 +5,7 @@ import { getProject } from './project.queries'
 import { SomethingWentWrong } from '../Utils/Errors'
 import { Opening, scrollIntoView } from '../Utils/Loading'
 
-type Props = {
+export type Props = {
     projectName: string
 }
 

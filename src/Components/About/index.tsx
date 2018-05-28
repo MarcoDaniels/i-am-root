@@ -4,7 +4,7 @@ import AboutGet from './get'
 import AboutList from './list'
 import AboutGetWork from './work'
 
-interface AboutProps {
+export type AboutProps = {
     command: string
     options: string
 }

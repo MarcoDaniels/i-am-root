@@ -6,8 +6,8 @@ import Project from './Project'
 import About from './About'
 import HelpList from './Help/list'
 
-type Props = {}
-type State = {
+export type Props = {}
+export type State = {
     input: string
     last: string
     position: number

@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-interface UserProps {
+export interface UserProps {
     lastCommand?: string
 }
 

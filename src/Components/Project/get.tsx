@@ -7,7 +7,7 @@ import Loading, { scrollIntoView } from '../Utils/Loading'
 
 export class ProjectQuery extends Query<getProjectQuery, getProjectQueryVariables> {}
 
-export interface GetProjectProps {
+export type GetProjectProps = {
     projectName: string
 }
 

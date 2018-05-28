@@ -7,7 +7,7 @@ import { scrollIntoView } from '../Utils/Loading'
 
 class HelpQuery extends Query<getHelpQuery, getHelpQueryVariables> {}
 
-interface GetHelpProps {
+export type GetHelpProps = {
     helpType: string
     command?: string
 }

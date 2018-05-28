@@ -59,15 +59,30 @@ export interface getAboutWorkQuery {
         position: string | null,
         // The workplace name.
         workplace: string | null,
-        // The start date of the experience
+        // The start date of the experience.
         from: string | null,
-        // The end date of the experience
+        // The end date of the experience.
         to: string | null,
         // The city or/and country.
         location: string | null,
         // Details of the experience.
         details: Array< string | null > | null,
       } | null > | null,
+    } | null,
+  } | null,
+};
+
+export interface getWelcomeQuery {
+  // The user query
+  user:  {
+    __typename: "UserQuery",
+    // This is user.
+    get:  {
+      __typename: "User",
+      // The user name.
+      name: string | null,
+      // The user welcome message.
+      welcomeMessage: Array< string | null > | null,
     } | null,
   } | null,
 };
@@ -151,5 +166,20 @@ export interface listProjectsQuery {
       // The description of the project.
       description: string | null,
     } | null > | null,
+  } | null,
+};
+
+export interface loadAppQuery {
+  // The user query
+  user:  {
+    __typename: "UserQuery",
+    // This is user.
+    get:  {
+      __typename: "User",
+      // The user name.
+      name: string | null,
+      // The user welcome message.
+      welcomeMessage: Array< string | null > | null,
+    } | null,
   } | null,
 };

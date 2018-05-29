@@ -6,7 +6,7 @@ import CLI from './Components/CLI'
 import { Query } from 'react-apollo'
 import { loadAppQuery } from './Query/types'
 import { SomethingWentWrong } from './Components/Utils/Errors'
-import Root from './Components/Header/Root'
+import Root from './Components/Header/root'
 import Welcome from './Components/Header/welcome'
 import { loadApp } from './app.queries'
 
@@ -22,8 +22,11 @@ export const App: React.SFC = () => {
                 if (loading) {
                     return (
                         <div className="welcome-loading">
-                            loading <span className="text-head">my little virtual friend</span>
-                            <span className="text-base"> ...</span>
+                            <Root/>
+                            <div className="welcome-loading-message">
+                                loading <span className="text-head">my little virtual friend</span>
+                                <span className="text-base"> ...</span>
+                            </div>
                         </div>
                     )
                 }
@@ -44,10 +47,10 @@ export const App: React.SFC = () => {
                 return (
                     <div className="app">
                         <div className="row">
-                            <div className="two columns">
+                            <div className="three columns">
                                 <Root/>
                             </div>
-                            <div className="ten columns">
+                            <div className="nine columns">
                                 <Welcome name={name} welcomeMessage={welcomeMessage}/>
                             </div>
                         </div>

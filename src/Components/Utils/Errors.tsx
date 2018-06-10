@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { scrollIntoView } from './Loading'
 
-interface NotFoundProps {
+export type NotFoundProps = {
     command: string
 }
 
@@ -12,7 +13,7 @@ export const Ooops: React.SFC = () => {
 
 export const SomethingWentWrong: React.SFC = () => {
     return (
-        <div>
+        <div ref={instance => { scrollIntoView(instance) }}>
             <Ooops/>
             <div>something went wrong...</div>
         </div>
@@ -22,7 +23,7 @@ export const SomethingWentWrong: React.SFC = () => {
 export const CommandNotFound: React.SFC<NotFoundProps> = props => {
     const { command } = props
     return (
-        <div>
+        <div ref={instance => { scrollIntoView(instance) }}>
             <Ooops/>
             <div>command: "{command}" not found...</div>
         </div>

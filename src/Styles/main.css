@@ -73,6 +73,7 @@ a:hover,
 
 div.welcome {
     float: left;
+    padding-top: 15px;
 }
 
 div.welcome-loading {

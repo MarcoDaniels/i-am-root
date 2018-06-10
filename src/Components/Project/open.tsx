@@ -44,8 +44,9 @@ export class ProjectOpen extends Component<Props, any> {
 
                     return (
                         <div ref={instance => { scrollIntoView(instance) }}>
+                            <span className="text-head">open: </span>
                             <a ref={this.openProject} target="_blank" href={project.homepage ? project.homepage : ''} >
-                                <span className="text-head">open:</span> {project.homepage}
+                                {project.homepage}
                             </a>
                         </div>
                     )

@@ -29,20 +29,17 @@ export const HelpList: React.SFC = () => {
                 }
                 return (
                     <div ref={instance => { scrollIntoView(instance) }}>
+                        <div>My little virtual friend, version 1.0.0</div>
+                        <div className="text-head">These are commands I can understand:</div>
                         { features.map((feature, i) => feature && (
                             <div className="list" key={i}>
                                 <div>
-                                    <span>{feature.type}</span>
+                                    <span>`{feature.type}`</span>
                                     <span className="text-name"> {feature.description}</span>
                                 </div>
                                 <div>
                                     <span className="text-head">usage: </span>
-                                    <span className="text-name">{feature.usage}</span>
-                                </div>
-                                <div className="help-content">
-                                    {feature.content && (feature.content.map((item, key) => item && (
-                                        <div key={key}>{item}</div>
-                                    )))}
+                                    <span>{feature.usage}</span>
                                 </div>
                             </div>
                         ))}

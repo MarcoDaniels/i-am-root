@@ -17,9 +17,11 @@ export const listAbout = gql`
     query listAbout {
         user {
             list {
-                name
-                userName
-                title
+                data {
+                    name
+                    userName
+                    title
+                }
             }
         }
     }

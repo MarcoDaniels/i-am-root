@@ -20,7 +20,7 @@ export interface getAboutQuery {
       title: string | null,
       // The user description.
       description: Array< string | null > | null,
-    } | null,
+    },
   } | null,
 };
 
@@ -28,16 +28,20 @@ export interface listAboutQuery {
   // The user query
   user:  {
     __typename: "UserQuery",
-    // This is user.
-    list:  Array< {
-      __typename: "User",
-      // The user name.
-      name: string | null,
-      // The user userName.
-      userName: string | null,
-      // The user title.
-      title: string | null,
-    } | null > | null,
+    // Collection of data objects and metadata for User.
+    list:  {
+      __typename: "UserCollection",
+      // This is user.
+      data:  Array< {
+        __typename: "User",
+        // The user name.
+        name: string | null,
+        // The user userName.
+        userName: string | null,
+        // The user title.
+        title: string | null,
+      } | null > | null,
+    },
   } | null,
 };
 
@@ -68,22 +72,7 @@ export interface getAboutWorkQuery {
         // Details of the experience.
         details: Array< string | null > | null,
       } | null > | null,
-    } | null,
-  } | null,
-};
-
-export interface getWelcomeQuery {
-  // The user query
-  user:  {
-    __typename: "UserQuery",
-    // This is user.
-    get:  {
-      __typename: "User",
-      // The user name.
-      name: string | null,
-      // The user welcome message.
-      welcomeMessage: Array< string | null > | null,
-    } | null,
+    },
   } | null,
 };
 
@@ -95,7 +84,7 @@ export interface getHelpQuery {
   // The root commands help
   help:  {
     __typename: "HelpQuery",
-    // Help feature
+    // Help feature for CLI
     get:  {
       __typename: "Help",
       // The usage of feature help command
@@ -110,7 +99,7 @@ export interface listHelpQuery {
   // The root commands help
   help:  {
     __typename: "HelpQuery",
-    // Help feature
+    // Help feature for CLI
     list:  Array< {
       __typename: "Help",
       // The type of the feature
@@ -180,6 +169,6 @@ export interface loadAppQuery {
       name: string | null,
       // The user welcome message.
       welcomeMessage: Array< string | null > | null,
-    } | null,
+    },
   } | null,
 };

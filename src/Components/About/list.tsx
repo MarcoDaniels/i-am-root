@@ -18,12 +18,12 @@ export const AboutList: React.SFC = () => {
                     return <div>fetching users ...</div>
                 }
 
-                const aboutData = data.user ? data.user : null
+                const aboutData = data.user
                 if (!aboutData) {
                     return <SomethingWentWrong/>
                 }
 
-                const users = aboutData.list ? aboutData.list : null
+                const users = aboutData.list.data
                 if (!users) {
                     return <SomethingWentWrong/>
                 }
